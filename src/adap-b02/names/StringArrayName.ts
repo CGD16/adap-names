@@ -13,7 +13,7 @@ export class StringArrayName implements Name {
             this.delimiter = delimiter;
         } 
         if (typeof (source as any) === "string") {
-        this.components = (source as any).split(this.delimiter);
+            this.components = (source as any).split(this.delimiter);
         } else {
             this.components = source.slice();
         }
