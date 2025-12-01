@@ -146,7 +146,7 @@ export class StringName extends AbstractName {
     }
 
     public remove(i: number) {
-         IllegalArgumentException.assert(i >= 0, "index is negative");
+        IllegalArgumentException.assert(i >= 0, "index is negative");
         IllegalArgumentException.assert(i < this.noComponents, "index out of bounds");
         IllegalArgumentException.assert(this.noComponents > 0, "cannot remove from empty name");
 
