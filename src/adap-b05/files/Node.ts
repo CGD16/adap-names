@@ -27,12 +27,14 @@ export class Node {
     }
 
     public getFullName(): Name {
+        this.assertClassInvariant();
         const result: Name = this.parentNode.getFullName();
         result.append(this.getBaseName());
         return result;
     }
 
     public getBaseName(): string {
+        this.assertClassInvariant();
         return this.doGetBaseName();
     }
 
@@ -68,5 +70,15 @@ export class Node {
         }
         return result;
     }
+
+    protected assertClassInvariant(): void {
+        InvalidStateException.assert(this.baseName !== null, "baseName is null");
+        InvalidStateException.assert(this.baseName !== undefined, "baseName is undefined");
+        InvalidStateException.assert(this.baseName.length > 0, "baseName is empty");
+        InvalidStateException.assert(this.parentNode !== null, "parentNode is null");
+        InvalidStateException.assert(this.parentNode !== undefined, "parentNode is undefined");
+    }
+
+
 
 }
